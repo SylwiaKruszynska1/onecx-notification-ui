@@ -1,11 +1,11 @@
 import { CommonModule } from '@angular/common'
 import { Component, Input, OnDestroy, inject } from '@angular/core'
 import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy'
-import { Topic } from '@onecx/accelerator'
-import { AuthProxyService } from '@onecx/angular-auth'
 import { Observable, defer, from, timer } from 'rxjs'
 import { retry, switchMap } from 'rxjs/operators'
 
+import { Topic } from '@onecx/accelerator'
+import { AuthProxyService } from '@onecx/angular-auth'
 import { UserService } from '@onecx/angular-integration-interface'
 import {
   AngularRemoteComponentsModule,
@@ -13,6 +13,7 @@ import {
   ocxRemoteComponent,
   ocxRemoteWebcomponent
 } from '@onecx/angular-remote-components'
+
 import { createLogger } from 'src/app/shared/utils/logger.utils'
 import { SockJsRxClient } from '../../shared/utils/sockjs.utils'
 
