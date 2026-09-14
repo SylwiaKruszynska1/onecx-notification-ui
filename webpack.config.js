@@ -1,5 +1,6 @@
 const { ModifyEntryPlugin } = require('@angular-architects/module-federation/src/utils/modify-entry-plugin')
 const { share, withModuleFederationPlugin } = require('@angular-architects/module-federation/webpack')
+const webpack = require('webpack')
 const config = withModuleFederationPlugin({
   name: 'onecx-notification-ui',
   filename: 'remoteEntry.js',
@@ -87,7 +88,13 @@ const plugins = config.plugins.filter((plugin) => !(plugin instanceof ModifyEntr
 
 module.exports = {
   ...config,
-  plugins,
+  plugins: [
+    ...plugins,
+    new webpack.DefinePlugin({
+      ngDevMode: true,
+      global: 'globalThis'
+    })
+  ],
   output: { uniqueName: 'onecx-notification-ui', publicPath: 'auto' },
   experiments: { ...config.experiments, topLevelAwait: true },
   optimization: { runtimeChunk: false, splitChunks: false },
