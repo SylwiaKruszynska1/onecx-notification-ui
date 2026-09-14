@@ -1,21 +1,33 @@
 {
   "name": "onecx-notification-ui",
+  "private": true,
   "version": "0.0.0",
   "license": "Apache-2.0",
+  "contributors": [
+    "OneCX Development Team <onecx_dev@1000kit.org>"
+  ],
+  "config": {
+    "openapiYaml": "src/assets/api/openapi-bff.yaml",
+    "openapiOutput": "src/app/shared/generated",
+    "jest.params": "--noStackTrace --codeCoverage"
+  },
   "scripts": {
-    "apigen": "openapi-generator-cli generate -i src/assets/api/openapi-bff.yaml -c apigen.yaml -o src/app/shared/generated -g typescript-angular --type-mappings AnyType=object",
     "start": "nx serve --host 0.0.0.0 --disable-host-check",
     "build": "nx build && cp dist/notification/styles.*.css dist/notification/styles.css",
     "postbuild": "mv \"$(find dist/notification -maxdepth 1 -type f -name 'styles.*.css' | head -n 1)\" dist/notification/styles.css",
     "clean": "npm cache clean --force && npx clear-npx-cache && rm -rf *.log dist reports .nx .angular .eslintcache ./node_modules/.cache/prettier/.prettier-cache",
     "format": "nx format:write --uncommitted",
-    "lint": "nx lint",
+    "lint": "nx lint --cache=true && npx prettier -c --cache .",
+    "eslint": "eslint --quiet --ext .js,.ts src",
     "lint:fix": "nx lint --fix",
-    "sonar": "npx sonar-scanner",
     "test": "nx test",
-    "test:ci": "nx test --watch=false --browsers=ChromeHeadless --code-coverage"
+    "test:ci": "nx test --watch=false --browsers=ChromeHeadless --code-coverage",
+    "sonar": "npx sonar-scanner",
+    "apigen-cleanup": "rm -rf $npm_package_config_openapiOutput",
+    "apigen-format": "npx prettier $npm_package_config_openapiYaml --write && npx prettier $npm_package_config_openapiOutput/**/* --write",
+    "apigen-generate": "openapi-generator-cli generate -i $npm_package_config_openapiYaml -g typescript-angular -c apigen.yaml -o $npm_package_config_openapiOutput --type-mappings=AnyType=object,set=Array",
+    "apigen": "npm run apigen-cleanup && npm run apigen-generate && npm run apigen-format"
   },
-  "private": true,
   "dependencies": {
     "@angular-architects/module-federation": "^18.0.4",
     "@angular/animations": "^19.0.7",

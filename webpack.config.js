@@ -5,7 +5,8 @@ const config = withModuleFederationPlugin({
   filename: 'remoteEntry.js',
   exposes: {
     './OneCXNotificationModule': './src/main.ts',
-    './NotificationConnectorComponent': './src/app/remotes/notification-connector/notification-connector.component.main.ts',
+    './NotificationConnectorComponent':
+      './src/app/remotes/notification-connector/notification-connector.component.main.ts'
   },
   shared: share({
     '@angular/core': {

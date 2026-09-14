@@ -98,7 +98,8 @@
       "options": {
         "disableHostCheck": true,
         "host": "0.0.0.0",
-        "publicHost": "http://localhost:4200",
+        "port": 4201,
+        "publicHost": "http://localhost:4201",
         "proxyConfig": "proxy.conf.js",
         "headers": {
           "Allow": "GET, POST, PUT, DELETE, PATCH, OPTIONS",
@@ -124,8 +125,7 @@
       "executor": "@nx/jest:jest",
       "outputs": ["{workspaceRoot}/coverage/{projectName}"],
       "options": {
-        "jestConfig": "jest.config.ts",
-        "coverage": true
+        "jestConfig": "jest.config.ts"
       }
     },
     "serve-static": {

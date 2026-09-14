@@ -42,7 +42,7 @@ export const commonImports = [CommonModule]
     }),
     EffectsModule.forRoot([]),
     AngularAcceleratorModule,
-    AngularAuthModule,    
+    AngularAuthModule,
     TranslateModule.forRoot({
       isolate: true,
       loader: {
