@@ -1,4 +1,3 @@
-import { CommonModule } from '@angular/common'
 import { HttpClient, provideHttpClient, withInterceptorsFromDi } from '@angular/common/http'
 import { NgModule, isDevMode } from '@angular/core'
 import { BrowserModule } from '@angular/platform-browser'
@@ -21,12 +20,10 @@ import { Configuration } from 'src/app/shared/generated'
 import { apiConfigProvider } from 'src/app/shared/utils/apiConfigProvider.utils'
 import { environment } from 'src/environments/environment'
 
-export const commonImports = [CommonModule]
 
 @NgModule({
   declarations: [AppComponent],
   imports: [
-    ...commonImports,
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,

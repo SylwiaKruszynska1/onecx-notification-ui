@@ -1,4 +1,3 @@
-import { CommonModule } from '@angular/common'
 import { Component, Input, OnDestroy, inject } from '@angular/core'
 import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy'
 import { Topic } from '@onecx/accelerator'
@@ -64,7 +63,7 @@ export class NotificationTopic extends Topic<Notification> {
   selector: 'app-notification-connector',
   standalone: true,
   template: '',
-  imports: [AngularRemoteComponentsModule, CommonModule],
+  imports: [AngularRemoteComponentsModule],
   providers: []
 })
 @UntilDestroy()
