@@ -1,5 +1,4 @@
 import { HttpClient, provideHttpClient, withInterceptorsFromDi } from '@angular/common/http'
-import { BrowserModule } from '@angular/platform-browser'
 import { DoBootstrap, Injector, isDevMode, NgModule, inject, provideAppInitializer } from '@angular/core'
 import { StoreRouterConnectingModule } from '@ngrx/router-store'
 import { StoreModule } from '@ngrx/store'
@@ -38,7 +37,6 @@ effectProvidersForWorkaround.forEach((p) => (p.ɵprov.providedIn = null))
   imports: [
     AngularAcceleratorModule,
     RouterModule.forRoot(routes),
-    BrowserModule,
     BrowserAnimationsModule,
     AngularAuthModule,
     ShellCoreModule,

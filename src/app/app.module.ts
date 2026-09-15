@@ -1,6 +1,5 @@
 import { HttpClient, provideHttpClient, withInterceptorsFromDi } from '@angular/common/http'
 import { NgModule, isDevMode } from '@angular/core'
-import { BrowserModule } from '@angular/platform-browser'
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { LetDirective } from '@ngrx/component'
 import { EffectsModule } from '@ngrx/effects'
@@ -24,7 +23,6 @@ import { environment } from 'src/environments/environment'
 @NgModule({
   declarations: [AppComponent],
   imports: [
-    BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
     LetDirective,
