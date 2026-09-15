@@ -27,7 +27,6 @@ import {
 } from '@onecx/angular-utils'
 import { ShellCoreModule } from '@onecx/shell-core'
 import { Configuration } from 'src/app/shared/generated'
-import { SharedModule } from 'src/app/shared/shared.module'
 import { apiConfigProvider } from 'src/app/shared/utils/apiConfigProvider.utils'
 
 // Workaround for the following issue:
@@ -41,7 +40,6 @@ effectProvidersForWorkaround.forEach((p) => (p.ɵprov.providedIn = null))
     ...commonImports,
     AngularAcceleratorModule,
     RouterModule.forRoot(routes),
-    SharedModule,
     BrowserModule,
     BrowserAnimationsModule,
     AngularAuthModule,
