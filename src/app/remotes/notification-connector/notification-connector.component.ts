@@ -61,6 +61,7 @@ export class NotificationTopic extends Topic<Notification> {
 
 @Component({
   selector: 'app-notification-connector',
+  template: '',
   imports: [AngularRemoteComponentsModule],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
