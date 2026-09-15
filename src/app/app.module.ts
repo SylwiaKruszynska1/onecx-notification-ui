@@ -24,9 +24,9 @@ import { environment } from 'src/environments/environment'
 export const commonImports = [CommonModule]
 
 @NgModule({
-  declarations: [AppComponent],
   imports: [
     ...commonImports,
+    AppComponent,
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
@@ -60,7 +60,6 @@ export const commonImports = [CommonModule]
       useFactory: apiConfigProvider,
       deps: [ConfigurationService, AppStateService]
     }
-  ],
-  bootstrap: [AppComponent]
+  ]
 })
 export class AppModule {}
