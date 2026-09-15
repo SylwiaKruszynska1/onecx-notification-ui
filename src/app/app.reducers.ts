@@ -9,4 +9,4 @@ export const reducers: ActionReducerMap<State> = {
   onecx: oneCxReducer
 }
 
-export const metaReducers: MetaReducer<State>[] = isDevMode() ? [] : []
+export const metaReducers: MetaReducer<State>[] = []
