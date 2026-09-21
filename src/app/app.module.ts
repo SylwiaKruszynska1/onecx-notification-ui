@@ -19,10 +19,9 @@ import { Configuration } from 'src/app/shared/generated'
 import { apiConfigProvider } from 'src/app/shared/utils/apiConfigProvider.utils'
 import { environment } from 'src/environments/environment'
 
-
 @NgModule({
-  declarations: [AppComponent],
   imports: [
+    AppComponent,
     BrowserAnimationsModule,
     AppRoutingModule,
     LetDirective,
@@ -37,7 +36,7 @@ import { environment } from 'src/environments/environment'
     }),
     EffectsModule.forRoot([]),
     AngularAcceleratorModule,
-    AngularAuthModule,    
+    AngularAuthModule,
     TranslateModule.forRoot({
       isolate: true,
       loader: {
@@ -55,7 +54,6 @@ import { environment } from 'src/environments/environment'
       useFactory: apiConfigProvider,
       deps: [ConfigurationService, AppStateService]
     }
-  ],
-  bootstrap: [AppComponent]
+  ]
 })
 export class AppModule {}
