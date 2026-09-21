@@ -20,8 +20,7 @@ const config = withModuleFederationPlugin({
     },
     '@angular/forms': {
       requiredVersion: 'auto',
-      includeSecondaries: true,
-      eager: false
+      includeSecondaries: true
     },
     '@angular/common': {
       requiredVersion: 'auto',
@@ -30,15 +29,6 @@ const config = withModuleFederationPlugin({
       }
     },
     '@angular/common/http': {
-      requiredVersion: 'auto',
-      includeSecondaries: true
-    },
-    '@angular/forms': {
-      requiredVersion: 'auto',
-      includeSecondaries: true,
-      eager: false
-    },
-    '@angular/platform-browser': {
       requiredVersion: 'auto',
       includeSecondaries: true
     },

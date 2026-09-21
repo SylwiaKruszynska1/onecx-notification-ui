@@ -1,4 +1,3 @@
-/* eslint-disable */
 import type { Config } from 'jest'
 
 // list of patterns for which no transformation/transpiling should be made
