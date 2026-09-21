@@ -1,4 +1,3 @@
-import { isDevMode } from '@angular/core'
 import { routerReducer } from '@ngrx/router-store'
 import { ActionReducerMap, MetaReducer } from '@ngrx/store'
 
@@ -11,4 +10,4 @@ export const reducers: ActionReducerMap<State> = {
   onecx: oneCxReducer
 }
 
-export const metaReducers: MetaReducer<State>[] = isDevMode() ? [] : []
+export const metaReducers: MetaReducer<State>[] = []

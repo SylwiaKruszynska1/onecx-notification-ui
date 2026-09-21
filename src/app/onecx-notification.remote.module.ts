@@ -11,6 +11,8 @@ import { MissingTranslationHandler, TranslateLoader, TranslateModule } from '@ng
 
 import { AngularAcceleratorMissingTranslationHandler, AngularAcceleratorModule } from '@onecx/angular-accelerator'
 import { AngularAuthModule } from '@onecx/angular-auth'
+import { initializeRouter, createAppEntrypoint } from '@onecx/angular-webcomponents'
+
 import { AppStateService, ConfigurationService } from '@onecx/angular-integration-interface'
 import {
   createTranslateLoader,
@@ -18,8 +20,6 @@ import {
   provideThemeConfig,
   provideAngularUtils
 } from '@onecx/angular-utils'
-import { initializeRouter, createAppEntrypoint } from '@onecx/angular-webcomponents'
-import { provideNavigatedEventStoreConnector } from '@onecx/ngrx-accelerator'
 import { ShellCoreModule } from '@onecx/shell-core'
 
 import { Configuration } from 'src/app/shared/generated'
@@ -82,13 +82,12 @@ effectProvidersForWorkaround.forEach((p) => (p.ɵprov.providedIn = null))
       const initializerFn = initializeRouter(inject(Router), inject(AppStateService))
       return initializerFn()
     }),
-    provideNavigatedEventStoreConnector(),
     provideThemeConfig(),
     provideAngularUtils()
   ]
 })
 export class OneCXNotificationModule implements DoBootstrap {
-  private injector = inject(Injector)
+  private readonly injector = inject(Injector)
 
   ngDoBootstrap(): void {
     createAppEntrypoint(AppEntrypointComponent, 'ocx-notification-component', this.injector)
